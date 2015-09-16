@@ -34,6 +34,7 @@
   },
   "devDependencies": {
     "chai": "^3.2.0",
+    "codeclimate-test-reporter": "^0.1.1",
     "coveralls": "^2.11.4",
     "gulp": "^3.9.0",
     "gulp-eslint": "^1.0.0",
@@ -45,6 +46,7 @@
   },
   "scripts": {
     "coveralls": "gulp test && cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "codeclimate": "gulp test && cat coverage/lcov.info | ./node_modules/codeclimate-test-reporter/bin/codeclimate.js",
     "test": "gulp test"
   }
 }

@@ -1,5 +1,5 @@
 # passport-wpoauth
-[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-url]][daviddm-image] [![Coverage Status][coveralls-image]][coveralls-url]
+[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-url]][daviddm-image] [![Code Climate][climate-image]][climate-url] [![Coverage Status][coveralls-image]][coveralls-url]
 
 A authentication strategy for [Passport](http://passportjs.org/) against a 
 [Wordpress OAuth Server](https://wp-oauth.com/).
@@ -53,5 +53,7 @@ Licensed under the MIT license.
 [travis-image]: https://travis-ci.org/tlercher/passport-wpoauth.svg?branch=master
 [daviddm-url]: https://david-dm.org/tlercher/passport-wpoauth.svg?theme=shields.io
 [daviddm-image]: https://david-dm.org/tlercher/passport-wpoauth
+[climate-url]: https://codeclimate.com/github/tlercher/passport-wpoauth
+[climate-image]: https://codeclimate.com/github/tlercher/passport-wpoauth/badges/gpa.svg
 [coveralls-url]: https://coveralls.io/r/tlercher/passport-wpoauth
 [coveralls-image]: https://coveralls.io/repos/tlercher/passport-wpoauth/badge.svg?branch=master&service=github

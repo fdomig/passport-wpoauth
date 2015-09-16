@@ -1,0 +1,28 @@
+# Folders
+build/
+docs/
+examples/
+reports/
+test/
+
+# Node
+.npmignore
+node_modules/
+npm-debug.log
+
+# OS X
+.DS_Store
+
+# Git
+.git*
+
+# Other
+Makefile
+README.md
+
+# Buildfiles
+Gulpfile.js
+
+# Utilities
+.eslintrc
+.travis.yml

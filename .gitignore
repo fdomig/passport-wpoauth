@@ -1,0 +1,12 @@
+coverage/
+reports/
+
+# IntelliJ
+.idea
+
+# Node
+node_modules/
+npm-debug.log
+
+# OS X
+.DS_Store

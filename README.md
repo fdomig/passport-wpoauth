@@ -1,5 +1,5 @@
 # passport-wpoauth
-[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-url]][daviddm-image] [![Code Climate][climate-image]][climate-url] [![Coverage Status][coveralls-image]][coveralls-url]
+[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url] [![Code Climate][climate-image]][climate-url] [![Dependency Status][daviddm-image]][daviddm-url]
 
 A authentication strategy for [Passport](http://passportjs.org/) against a 
 [Wordpress OAuth Server](https://wp-oauth.com/).
@@ -48,12 +48,12 @@ Copyright (c) 2015 Thomas Lercher.
 Licensed under the MIT license.
 
 [npm-url]: https://npmjs.org/package/passport-wpoauth
-[npm-image]: https://badge.fury.io/js/passport-wpoauth.svg
+[npm-image]: https://img.shields.io/npm/v/passport-wpoauth.svg?style=flat-square
 [travis-url]: https://travis-ci.org/tlercher/passport-wpoauth
-[travis-image]: https://travis-ci.org/tlercher/passport-wpoauth.svg?branch=master
-[daviddm-url]: https://david-dm.org/tlercher/passport-wpoauth.svg?theme=shields.io
-[daviddm-image]: https://david-dm.org/tlercher/passport-wpoauth
+[travis-image]: https://img.shields.io/travis/tlercher/passport-wpoauth.svg?style=flat-square
+[daviddm-url]: https://david-dm.org/tlercher/passport-wpoauth
+[daviddm-image]: https://img.shields.io/david/tlercher/passport-wpoauth.svg?style=flat-square
 [climate-url]: https://codeclimate.com/github/tlercher/passport-wpoauth
-[climate-image]: https://codeclimate.com/github/tlercher/passport-wpoauth/badges/gpa.svg
+[climate-image]: https://img.shields.io/codeclimate/github/tlercher/passport-wpoauth.svg?style=flat-square
 [coveralls-url]: https://coveralls.io/r/tlercher/passport-wpoauth
-[coveralls-image]: https://coveralls.io/repos/tlercher/passport-wpoauth/badge.svg?branch=master&service=github
+[coveralls-image]: https://img.shields.io/coveralls/tlercher/passport-wpoauth/master.svg?style=flat-square

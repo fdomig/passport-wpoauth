@@ -1,3 +1,4 @@
+'use strict';
 /* global describe, it, expect, before */
 /* eslint expr: true */
 

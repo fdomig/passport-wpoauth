@@ -1,3 +1,4 @@
+'use strict';
 /* eslint expr: true */
 
 var WPOAuthStrategy = require('../lib/strategy');
@@ -9,7 +10,7 @@ describe('Strategy#authenticate', function() {
   });
 
   describe('exchange auth code', function() {
-    var err, params;
+    var err, accessToken, refreshToken;
     var strategy = new WPOAuthStrategy({
         clientID: 'ABC123',
         clientSecret: 'secret'
@@ -19,13 +20,17 @@ describe('Strategy#authenticate', function() {
 
     // mock
     strategy._oauth2.getOAuthAccessToken = function(authCode, params, callback) {
-      callback(authCode, params);
+      expect(params).to.not.be.undefined;
+      expect(params).to.include.keys('grant_type');
+      expect(params).to.have.property('grant_type', 'authorization_code');
+      callback(null, 'access_token', 'refresh_token');
     };
 
     before(function(done) {
-      strategy._exchangeAuthCode('authCode', function(e, p) {
+      strategy._exchangeAuthCode('authCode', function(e, aToken, rToken) {
         err = e;
-        params = p;
+        accessToken = aToken;
+        refreshToken = rToken;
         done();
       });
     });
@@ -35,9 +40,11 @@ describe('Strategy#authenticate', function() {
     });
 
     it('should have a grant_type', function() {
-      expect(params).to.not.be.undefined;
-      expect(params).to.have.property('grant_type');
-      expect(params).to.have.propertyVal('grant_type', 'authorization_code');
+      expect(accessToken).to.not.be.undefined;
+      expect(refreshToken).to.not.be.undefined;
+
+      expect(accessToken).to.equal('access_token');
+      expect(refreshToken).to.equal('refresh_token');
     });
   });
 });

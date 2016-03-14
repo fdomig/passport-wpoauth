@@ -2,9 +2,8 @@ language: node_js
 env: CI=true
 sudo: false
 node_js:
-  - '4.0'
-  - '0.10'
-  - 'iojs'
+  - '4.4.0'
+  - '5'
 script: gulp
 before_script:
   - npm install -g gulp

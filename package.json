@@ -25,10 +25,10 @@
   "license": "MIT",
   "main": "./lib",
   "engines": {
-    "node": ">= 0.10.0"
+    "node": ">= 4.4.0"
   },
   "dependencies": {
-    "passport-oauth2": "1.x.x",
+    "passport-oauth2": "^1.2.0",
     "string.prototype.endswith": "^0.2.0",
     "string.prototype.includes": "^1.0.0"
   },

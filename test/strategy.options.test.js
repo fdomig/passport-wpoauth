@@ -1,6 +1,5 @@
 'use strict';
-/* global describe, it, expect, before */
-/* eslint expr: true */
+/* eslint-env node, mocha, jasmine */
 
 var WPOAuthStrategy = require('../lib/strategy');
 
@@ -9,20 +8,24 @@ describe('Strategy#userProfile', function() {
 
   describe('loading profile using custom URL', function() {
     var strategy =  new WPOAuthStrategy({
-        clientID: 'ABC123',
-        clientSecret: 'secret',
-        userProfileURL: 'https://wpoauth.onion/subfolder/blog/oauth/me'
-      },
-      function() {});
+      clientID: 'ABC123',
+      clientSecret: 'secret',
+      userProfileURL: 'https://wpoauth.onion/subfolder/blog/oauth/me'
+    },
+    function() {});
 
     // mock
     strategy._oauth2.get = function(url, accessToken, callback) {
-      if (url != 'https://wpoauth.onion/subfolder/blog/oauth/me/') { return callback(new Error('wrong url argument')); }
-      if (accessToken != 'token') { return callback(new Error('wrong token argument')); }
+      if (url !== 'https://wpoauth.onion/subfolder/blog/oauth/me/') {
+        return callback(new Error('wrong url argument'));
+      }
+      if (accessToken !== 'token') {
+        return callback(new Error('wrong token argument'));
+      }
 
       var body = '{"ID":"1","user_login":"anonymous","user_nicename":"anonymous","user_email":"anonymous@anonmail.org","user_registered":"2015-01-01 13:37:59","user_status":"0","display_name":"Anon Ymous","email":"anonymous@anonmail.org"}';
 
-      callback(null, body, undefined);
+      callback(null, body);
     };
 
 
@@ -30,7 +33,9 @@ describe('Strategy#userProfile', function() {
 
     before(function(done) {
       strategy.userProfile('token', function(err, p) {
-        if (err) { return done(err); }
+        if (err) {
+          return done(err);
+        }
         profile = p;
         done();
       });

@@ -1,6 +1,5 @@
 'use strict';
-/* global describe, it, expect, before */
-/* eslint expr: true */
+/* eslint-env node, mocha, jasmine */
 
 var WPOAuthStrategy = require('../lib/strategy');
 
@@ -9,11 +8,11 @@ describe('Strategy#userProfile', function() {
   describe('loading profile', function() {
     var profile;
     var strategy = new WPOAuthStrategy({
-        clientID: 'ABC123',
-        clientSecret: 'secret'
-      },
-      function() {
-      });
+      clientID: 'ABC123',
+      clientSecret: 'secret'
+    },
+    function() {
+    });
 
     // mock
     strategy._oauth2.get = function(url, accessToken, callback) {
@@ -26,7 +25,7 @@ describe('Strategy#userProfile', function() {
 
       var body = '{"ID":"1","user_login":"anonymous","user_nicename":"anonymous","user_email":"anonymous@anonmail.org","user_registered":"2015-01-01 13:37:59","user_status":"0","display_name":"Anon Ymous","email":"anonymous@anonmail.org"}';
 
-      callback(null, body, undefined);
+      callback(null, body);
     };
 
     before(function(done) {
@@ -60,11 +59,11 @@ describe('Strategy#userProfile', function() {
 
   describe('loading invalid profile', function() {
     var invalidStrategy = new WPOAuthStrategy({
-        clientID: 'ABC123',
-        clientSecret: 'secret'
-      },
-      function() {
-      });
+      clientID: 'ABC123',
+      clientSecret: 'secret'
+    },
+    function() {
+    });
 
     // mock
     invalidStrategy._oauth2.get = function(url, accessToken, callback) {
@@ -77,7 +76,7 @@ describe('Strategy#userProfile', function() {
 
       var body = '{"ID":"1","user_login":"anonymous","user_nicename":"anonymous",...';
 
-      callback(null, body, undefined);
+      callback(null, body);
     };
 
     var error;
@@ -101,11 +100,11 @@ describe('Strategy#userProfile', function() {
   describe('encountering an error', function() {
     var err, profile;
     var strategy = new WPOAuthStrategy({
-        clientID: 'ABC123',
-        clientSecret: 'secret'
-      },
-      function() {
-      });
+      clientID: 'ABC123',
+      clientSecret: 'secret'
+    },
+    function() {
+    });
 
     // mock
     strategy._oauth2.get = function(url, accessToken, callback) {
@@ -118,7 +117,7 @@ describe('Strategy#userProfile', function() {
 
       var body = '{"ID":"1","user_login":"anonymous","user_nicename":"anonymous","user_email":"anonymous@anonmail.org","user_registered":"2015-01-01 13:37:59","user_status":"0","display_name":"Anon Ymous","email":"anonymous@anonmail.org"}';
 
-      callback(null, body, undefined);
+      callback(null, body);
     };
 
     before(function(done) {
@@ -144,8 +143,8 @@ describe('Strategy#userProfile', function() {
 
     it('without options', function(done) {
       try {
-        new WPOAuthStrategy(null, function() { });
-      } catch(err) {
+        var foo = new WPOAuthStrategy(null, function() { });
+      } catch (err) {
         expect(err).to.be.an.instanceOf(Error);
         expect(err.constructor.name).to.equal('TypeError');
         expect(err.message).to.equal('OAuth2Strategy requires a clientID option');

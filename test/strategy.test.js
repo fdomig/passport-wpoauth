@@ -1,6 +1,5 @@
 'use strict';
-/* global describe, it, expect */
-/* eslint expr: true */
+/* eslint-env node, mocha, jasmine */
 
 var WPOAuthStrategy = require('../lib/strategy');
 
@@ -8,10 +7,10 @@ var WPOAuthStrategy = require('../lib/strategy');
 describe('Strategy', function() {
 
   var strategy = new WPOAuthStrategy({
-      clientID: 'ABC123',
-      clientSecret: 'secret'
-    },
-    function() {});
+    clientID: 'ABC123',
+    clientSecret: 'secret'
+  },
+  function() {});
 
   it('should be named wpoauth', function() {
     expect(strategy.name).to.equal('wpoauth');
@@ -25,11 +24,11 @@ describe('Strategy', function() {
   describe('constructed with user agent option', function() {
 
     var strategy = new WPOAuthStrategy({
-        clientID: 'ABC123',
-        clientSecret: 'secret',
-        userAgent: 'example.com'
-      },
-      function() {});
+      clientID: 'ABC123',
+      clientSecret: 'secret',
+      userAgent: 'example.com'
+    },
+    function() {});
 
     it('should have default user agent', function() {
       expect(strategy._oauth2._customHeaders['User-Agent']).to.equal('example.com');
@@ -39,11 +38,11 @@ describe('Strategy', function() {
   describe('constructed with custom headers including user agent', function() {
 
     var strategy = new WPOAuthStrategy({
-        clientID: 'ABC123',
-        clientSecret: 'secret',
-        customHeaders: { 'User-Agent': 'example.net' }
-      },
-      function() {});
+      clientID: 'ABC123',
+      clientSecret: 'secret',
+      customHeaders: { 'User-Agent': 'example.net' }
+    },
+    function() {});
 
     it('should have default user agent', function() {
       expect(strategy._oauth2._customHeaders['User-Agent']).to.equal('example.net');
@@ -53,12 +52,12 @@ describe('Strategy', function() {
   describe('constructed with both custom headers including user agent and user agent option', function() {
 
     var strategy = new WPOAuthStrategy({
-        clientID: 'ABC123',
-        clientSecret: 'secret',
-        customHeaders: { 'User-Agent': 'example.org' },
-        userAgent: 'example.net'
-      },
-      function() {});
+      clientID: 'ABC123',
+      clientSecret: 'secret',
+      customHeaders: { 'User-Agent': 'example.org' },
+      userAgent: 'example.net'
+    },
+    function() {});
 
     it('should have default user agent', function() {
       expect(strategy._oauth2._customHeaders['User-Agent']).to.equal('example.org');

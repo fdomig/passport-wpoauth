@@ -1,5 +1,5 @@
 'use strict';
-/* eslint expr: true */
+/* eslint-env node, mocha, jasmine */
 
 var WPOAuthStrategy = require('../lib/strategy');
 
@@ -12,11 +12,11 @@ describe('Strategy#authenticate', function() {
   describe('exchange auth code', function() {
     var err, accessToken, refreshToken;
     var strategy = new WPOAuthStrategy({
-        clientID: 'ABC123',
-        clientSecret: 'secret'
-      },
-      function() {
-      });
+      clientID: 'ABC123',
+      clientSecret: 'secret'
+    },
+    function() {
+    });
 
     // mock
     strategy._oauth2.getOAuthAccessToken = function(authCode, params, callback) {
